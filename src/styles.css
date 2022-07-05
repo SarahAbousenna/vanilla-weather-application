@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Anek Malayalam", sans-serif;
+  /* font-family: "Roboto Mono", monospace; */
+}
+
+.card {
+  width: 1085px;
+  margin: 0 auto;
+  margin-top: 40px;
+  /* background-color: transparent; */
+}
+
+.card-body {
+  height: 600px;
+}
+
+.clouds-background {
+  width: 1050px;
+  border-radius: 7px;
+  -webkit-box-shadow: 10px 10px 23px -3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 10px 23px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 23px -3px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  position: absolute;
+  top: 45px;
+  left: 40px;
+  width: 400px;
+}
+
+.search-container {
+  position: relative;
+  top: -445px;
+  left: 30px;
+}
+
+.searchform {
+  height: 0px;
+}
+
+.search-bar {
+  width: 765px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  /* background-color: rgba(255, 255, 255, 0.4); */
+  background-color: rgb(36, 35, 60, 0.4);
+  color: white;
+  font-size: 20px;
+}
+
+.curr-location-button {
+  width: 200px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(36, 35, 60, 0.7);
+  color: white;
+  font-size: 20px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  background-color: rgb(36, 35, 60, 0.4);
+}
+
+::placeholder {
+  color: rgb(226, 221, 221);
+}
+
+.search-icon-button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  left: 705px;
+  top: -56px;
+}
+
+.search-icon-img {
+  height: 58px;
+}
+
+.main {
+  position: relative;
+  top: -420px;
+  left: 30px;
+  width: 990px;
+  height: 180px;
+  padding: 25px 25px;
+  background-color: rgb(36, 35, 60, 0.4);
+  border-radius: 5px;
+  color: white;
+}
+.curr-weather,
+.curr-city {
+  /* padding-top: 10px; */
+  font-size: 35px;
+}
+
+.conditons,
+.date {
+  padding-left: 25px;
+  padding-top: 10px;
+  font-size: 15px;
+}
+.weekly-forcast-container {
+  position: relative;
+  top: -400px;
+  left: 30px;
+  width: 990px;
+  height: 140px;
+  padding: 25px 25px;
+  background-color: rgb(36, 35, 60, 0.4);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+
+.emoji {
+  font-size: 35px;
+}
+
+.low-temp,
+.degree {
+  color: rgb(189, 189, 189);
+}
+
+.developer {
+  color: rgb(163, 146, 141);
+  font-size: 15px;
+  font-family: "Roboto Mono", monospace;
+  display: block;
+  margin-bottom: 10px;
+  margin: 0 auto;
+}
+
+.github-link {
+  color: rgb(54, 54, 82);
+  cursor: pointer;
+}
+
+/* :hover .github-link {
+
+} */
+
+.celsius,
+.celsius-feelslike {
+  color: white;
+  text-decoration: none;
+}
+
+.fahrenheit,
+.dash {
+  text-decoration: none;
+  color: rgb(189, 189, 189);
+}
+
+/* :hover .fahrenheit,
+:hover .celsius {
+  color: grey;
+} */
+
+/* .fahrenheit:focus,
+.celsius:focus {
+  color: white;
+} */
+
+#weather-description {
+  text-transform: capitalize;
+}
