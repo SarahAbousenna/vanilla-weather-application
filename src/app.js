@@ -78,9 +78,6 @@ function showTemperature(response) {
     response.data.weather[0].description;
   document.querySelector("#currentcountry").innerHTML =
     response.data.sys.country;
-
-  //   document.querySelector("#fri-hi").innerHTML = Math.round(
-  // response.data.main.temp.max
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
@@ -114,11 +111,6 @@ searchCity("Toronto");
 //*****---- Function - Display Current Location ----*****//
 //------------------------------------------------------//
 
-// function showCurrentLocation(response) {
-//   let currCityName = document.querySelector("#currentcity");
-//   currCityName.innerHTML = `${response.data.name}`;
-// }
-
 function showPosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let units = "metric";
@@ -136,5 +128,21 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
 
-//*****---- Function - Display Weekly Temperature ----*****//
+//*****---- Function - Change Background according to hour ----*****//
 //---------------------------------------------------------//
+
+// let day = new Date();
+// let currentTime = day.getHours();
+// let images = document.getElementById("bkgroundimg");
+// function changeBackground() {
+//   if (9 <= currentTime && currentTime < 18) {
+//     images.src = "/images/9am -6pm.jpg";
+//   }
+//   if (18 <= currentTime && currentTime < 21) {
+//     images.src = "/images/6pm -8pm.jpg";
+//   }
+//   if (21 <= currentTime && currentTime < 5) {
+//     images.src = "/images/8pm.jpg";
+//   }
+// }
+// changeBackground();
