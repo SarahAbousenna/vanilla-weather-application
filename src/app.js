@@ -43,42 +43,59 @@ existingDate.innerHTML = dateTime(currDate);
 //*****---- Function - Display convert Celsius to Fahrenheite ----*****//
 //--------------------------------------------------------------------//
 
-// function convertCel() {
-//   let cel = document.querySelector("#current-weather");
-//   cel.innerHTML = 1;
-// }
+function displayFahrenhiteDegree(event) {
+  event.preventDefault();
+  let fahrenhiteTemp = (celsiusTemperature * 9) / 5 + 32;
+  // remove active class from celcuis
+  celsiusLink.classList.remove("active");
+  // add active class to fahrenhite
+  fahrenhiteLink.classList.add("active");
+  let temperatureElement = document.querySelector("#current-weather");
+  temperatureElement.innerHTML = Math.round(fahrenhiteTemp);
+}
 
-// function convertFahr() {
-//   let fah = document.querySelector("#current-weather");
-//   fah.innerHTML = Math.round((1 * 9) / 5 + 32);
-// }
+function displaycelsiusDegree(event) {
+  event.preventDefault;
+  // add active class to celcuis
+  celsiusLink.classList.add("active");
+  // remove active class from celcuis
+  fahrenhiteLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-weather");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
-// let converttoCel = document.querySelector("#celsius-degree");
-// converttoCel.addEventListener("click", convertCel);
+let celsiusTemperature = null;
 
-// let converttoFah = document.querySelector("#fahrenheit-degree");
-// converttoFah.addEventListener("click", convertFahr);
+let fahrenhiteLink = document.querySelector("#fahrenheit-degree");
+fahrenhiteLink.addEventListener("click", displayFahrenhiteDegree);
+
+let celsiusLink = document.querySelector("#celsius-degree");
+celsiusLink.addEventListener("click", displaycelsiusDegree);
 
 //*****---- Function - Display City Temprature + Weather Details ----*****//
 //-----------------------------------------------------------------------//
 
 function showTemperature(response) {
-  document.querySelector("#currentcity").innerHTML = response.data.name;
-  document.querySelector("#current-weather").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed * 3.6
-  );
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
-  document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#currentcountry").innerHTML =
-    response.data.sys.country;
+  let temperatureElement = document.querySelector("#current-weather");
+  let cityElement = document.querySelector("#currentcity");
+  let countryElement = document.querySelector("#currentcountry");
+  let descriptionElement = document.querySelector("#weather-description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  // let dateElement = document.querySelector("#date");
+  let feelsLikeElement = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#curr-weather-icon");
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  countryElement.innerHTML = response.data.sys.country;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  // dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

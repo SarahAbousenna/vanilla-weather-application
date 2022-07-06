@@ -98,8 +98,6 @@ input:focus {
   height: 180px;
   padding: 10px 20px;
   background-color: rgb(36, 35, 60, 0.4);
-  /* margin-top: 0px; */
-  /* padding: 5px; */
   border-radius: 5px;
   color: white;
 }
@@ -171,31 +169,23 @@ input:focus {
   cursor: pointer;
 }
 
-/* :hover .github-link {
-
-} */
-
-.celsius,
 .celsius-feelslike {
   color: white;
   text-decoration: none;
 }
 
+.current-city-weather .active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+}
+
 .fahrenheit,
+.celsius,
 .dash {
   text-decoration: none;
   color: rgb(189, 189, 189);
 }
-
-/* :hover .fahrenheit,
-:hover .celsius {
-  color: grey;
-} */
-
-/* .fahrenheit:focus,
-.celsius:focus {
-  color: white;
-} */
 
 #weather-description {
   text-transform: capitalize;
