@@ -146,15 +146,19 @@ celsiusLink.addEventListener("click", displaycelsiusDegree);
 
 //*****---- Function - Change Background according to hour ----*****//
 
-let images = document.querySelector("#bkgroundimg");
 function changeBackground() {
-  if (5 <= currDate && currDate < 9) {
-    images.setAttribute("src", `images/5am - 9am.jpg`);
-  }
-  if (9 <= currDate && currDate < 18) {
-    images.setAttribute("src", `images/9am - 6pm.jpg`);
+  let day = new Date();
+  let currentTime = day.getHours();
+  let images = document.querySelector("#bkgroundimg");
+  console.log(currentTime);
+  if (currentTime >= 5 && currentTime < 9) {
+    images.setAttribute("src", `images/5am-9am.jpg`);
+  } else if (currentTime >= 9 && currentTime < 18) {
+    images.setAttribute("src", `images/9am-6pm.jpg`);
+  } else if (currentTime >= 18 && currentTime < 20) {
+    images.setAttribute("src", `images/6pm-8pm.jpg`);
   } else {
-    images.setAttribute("src", `images/8pm.jpg`);
+    images.setAttribute("src", `images/8pm-5am.jpg`);
   }
 }
 changeBackground();

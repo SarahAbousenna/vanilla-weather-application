@@ -111,7 +111,7 @@ input:focus {
   /* padding: 0px; */
 }
 .curr-city {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .conditons,
@@ -119,17 +119,19 @@ input:focus {
   font-size: 15px;
 }
 .date {
-  padding-top: 15px;
+  padding-top: 14px;
 }
 .conditons {
-  padding-top: 15px;
   margin-left: 30px;
+  margin-top: 6px;
 }
 .weather-icon {
   height: 80px;
+  float: left;
 }
 .current-city-weather {
-  align-self: baseline;
+  padding-top: 15px;
+  float: left;
 }
 
 .weekly-forcast-container {
