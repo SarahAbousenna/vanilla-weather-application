@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -74,12 +72,11 @@
               </form>
               <div class="col curr-location">
                 <button class="curr-location-button" id="current-location">
-                  Currrent Location
+                  <i class="fa-solid fa-location-crosshairs"></i> Currrent Location
                 </button>
               </div>
             </div>
           </div>
-
           <div class="main">
             <div class="row">
               <div class="col-6 curr-weather">
@@ -87,7 +84,7 @@
                   ><img
                     src=""
                     alt="weather-icon"
-                    class="weather-icon float-left"
+                    class="weather-icon"
                     id="curr-weather-icon"
                 /></span>
                 <span class="current-city-weather">
@@ -106,12 +103,12 @@
                 </span>
               </div>
               <div class="col-6 curr-city">
-                <i class="fa-solid fa-location-dot"></i>
+                <!-- <i class="fa-solid fa-location-dot location pin"></i> -->
+                <i class="fa-solid fa-map-location-dot"></i>
                 <span id="currentcity"></span>
-                <span>, </span>
+                <span>,</span>
                 <span id="currentcountry"> </span>
               </div>
-
               <div class="col-6 conditons">
                 <div class="col">
                   <!-- <i class="fa-solid fa-temperature-half"></i> -->
@@ -135,59 +132,90 @@
               </div>
             </div>
           </div>
-
           <div class="weekly-forcast-container">
             <div class="row">
-              <div class="col">
-                FRI
-                <div class="col emoji">
-                  <i class="fa-solid fa-cloud-rain"></i>
-                </div>
-                <div class="col" id="fri-hi">
-                  28°<span class="low-temp" id="fri-lo"> 16</span
-                  ><span class="degree">°C</span>
-                </div>
+              <div class="col-2">
+                <div class="weekly-forecast-date">THU</div>
+                <img
+                  src="http://openweathermap.org/img/wn/01d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 18° </span>
+                  <span class="weekly-forecast-temperature-min"> 12° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
-              <div class="col">
-                SAT
-                <div class="col emoji">
-                  <i class="fa-solid fa-cloud-sun"></i>
-                </div>
-                <div class="col">25° <span class="low-temp"> 18°C</span></div>
+                            <div class="col-2">
+                <div class="weekly-forecast-date">FRI</div>
+                <img
+                  src="http://openweathermap.org/img/wn/03d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 20° </span>
+                  <span class="weekly-forecast-temperature-min"> 19° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
-              <div class="col">
-                SUN
-                <div class="col emoji"><i class="fa-solid fa-cloud"></i></div>
-                <div class="col">32° <span class="low-temp"> 20°C</span></div>
+                            <div class="col-2">
+                <div class="weekly-forecast-date">SAT</div>
+                <img
+                  src="http://openweathermap.org/img/wn/04d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 17° </span>
+                  <span class="weekly-forecast-temperature-min"> 12° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
-              <div class="col">
-                MON
-                <div class="col emoji"><i class="fa-solid fa-sun"></i></div>
-                <div class="col">38° <span class="low-temp"> 18°C</span></div>
+                            <div class="col-2">
+                <div class="weekly-forecast-date">SUN</div>
+                <img
+                  src="http://openweathermap.org/img/wn/11d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 18° </span>
+                  <span class="weekly-forecast-temperature-min"> 14° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
-              <div class="col">
-                TUE
-                <div class="col emoji"><i class="fa-solid fa-sun"></i></div>
-                <div class="col">23°<span class="low-temp"> 17°C</span></div>
+                            <div class="col-2">
+                <div class="weekly-forecast-date">MON</div>
+                <img
+                  src="http://openweathermap.org/img/wn/03d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 23° </span>
+                  <span class="weekly-forecast-temperature-min"> 22° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
-              <div class="col">
-                WED
-                <div class="col emoji">
-                  <i class="fa-solid fa-cloud-bolt"></i>
-                </div>
-                <div class="col">28° <span class="low-temp"> 20°C</span></div>
-              </div>
-              <div class="col">
-                THU
-                <div class="col emoji">
-                  <i class="fa-solid fa-cloud-rain"></i>
-                </div>
-                <div class="col">31° <span class="low-temp"> 14°C</span></div>
+                            <div class="col-2">
+                <div class="weekly-forecast-date">TUE</div>
+                <img
+                  src="http://openweathermap.org/img/wn/09d.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> 28° </span>
+                  <span class="weekly-forecast-temperature-min"> 10° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
               </div>
             </div>
-          </div>
-        </div>
-        <div class="developer">
+        </div>        
+      </div>
+          <div class="developer">
           <span
             ><a
               class="github-link"
@@ -198,9 +226,7 @@
           </span>
           <span>by Sarah A - The Weather Cloud ™</span>
         </div>
-      </div>
     </div>
-
     <script src="src/app.js"></script>
   </body>
 </html>
