@@ -200,13 +200,13 @@ function changeBackground() {
   let images = document.querySelector("#bkgroundimg");
   console.log(currentTime);
   if (currentTime >= 5 && currentTime < 9) {
-    images.setAttribute("src", `images/5am-9am.jpg`);
+    images.setAttribute("src", `images/dawn.jpg`);
   } else if (currentTime >= 9 && currentTime < 18) {
-    images.setAttribute("src", `images/9am-6pm.jpg`);
+    images.setAttribute("src", `images/morning.jpg`);
   } else if (currentTime >= 18 && currentTime < 20) {
-    images.setAttribute("src", `images/6pm-8pm.jpg`);
+    images.setAttribute("src", `images/afternoon.jpg`);
   } else {
-    images.setAttribute("src", `images/8pm-5am.jpg`);
+    images.setAttribute("src", `images/night.jpg`);
   }
 }
 changeBackground();

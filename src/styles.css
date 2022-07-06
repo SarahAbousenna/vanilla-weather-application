@@ -28,6 +28,8 @@ body {
 
 .backgroundimg {
   border-radius: 7px;
+  opacity: 90%;
+  height: 566px;
 }
 
 .logo {
