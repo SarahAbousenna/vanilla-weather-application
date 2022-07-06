@@ -4,13 +4,14 @@
 body {
   font-family: "Anek Malayalam", sans-serif;
   /* font-family: "Roboto Mono", monospace; */
+  background-color: rgb(251, 232, 223, 0.3);
 }
 
 .card {
   width: 1085px;
   margin: 0 auto;
   margin-top: 40px;
-  /* background-color: transparent; */
+  background-color: transparent;
 }
 
 .card-body {
@@ -55,7 +56,7 @@ body {
   border: none;
   border-radius: 5px;
   /* background-color: rgba(255, 255, 255, 0.4); */
-  background-color: rgb(36, 35, 60, 0.4);
+  background-color: rgba(116, 116, 128, 0.4);
   color: white;
   font-size: 20px;
 }
@@ -65,7 +66,8 @@ body {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(36, 35, 60, 0.7);
+  /* background-color: rgb(36, 35, 60, 0.7); */
+  background-color: rgb(36, 35, 60, 0.5);
   color: white;
   font-size: 20px;
 }
@@ -73,11 +75,11 @@ body {
 textarea:focus,
 input:focus {
   outline: none;
-  background-color: rgb(36, 35, 60, 0.4);
+  /* background-color: rgb(36, 35, 60, 0.4); */
 }
 
 ::placeholder {
-  color: rgb(226, 221, 221);
+  color: rgb(235, 232, 232);
 }
 
 .search-icon-button {
@@ -99,7 +101,7 @@ input:focus {
   width: 990px;
   height: 180px;
   padding: 10px 20px;
-  background-color: rgb(36, 35, 60, 0.4);
+  background-color: rgb(116, 116, 128, 0.4);
   border-radius: 5px;
   color: white;
 }
@@ -145,7 +147,7 @@ input:focus {
   width: 990px;
   height: 140px;
   padding: 25px 25px;
-  background-color: rgb(36, 35, 60, 0.4);
+  background-color: rgb(116, 116, 128, 0.4);
   border-radius: 5px;
   color: white;
   text-align: center;
