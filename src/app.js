@@ -1,5 +1,5 @@
 //*****---- Function - Display Current Date and Time ----*****//
-//-----------------------------------------------------------//
+
 function dateTime(currDate) {
   let days = [
     "Sunday",
@@ -36,12 +36,7 @@ function dateTime(currDate) {
   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
 }
 
-let existingDate = document.querySelector("#curr-date");
-let currDate = new Date();
-existingDate.innerHTML = dateTime(currDate);
-
-//*****---- Function - Display convert Celsius to Fahrenheite ----*****//
-//--------------------------------------------------------------------//
+//*****---- Function - Convert Celsius to Fahrenheite ----*****//
 
 function displayFahrenhiteDegree(event) {
   event.preventDefault();
@@ -58,22 +53,13 @@ function displaycelsiusDegree(event) {
   event.preventDefault;
   // add active class to celcuis
   celsiusLink.classList.add("active");
-  // remove active class from celcuis
+  // remove active class from fahrenhite
   fahrenhiteLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-weather");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsiusTemperature = null;
-
-let fahrenhiteLink = document.querySelector("#fahrenheit-degree");
-fahrenhiteLink.addEventListener("click", displayFahrenhiteDegree);
-
-let celsiusLink = document.querySelector("#celsius-degree");
-celsiusLink.addEventListener("click", displaycelsiusDegree);
-
-//*****---- Function - Display City Temprature + Weather Details ----*****//
-//-----------------------------------------------------------------------//
+//*****---- Function - Display Current City Temprature + Weather Details ----*****//
 
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#current-weather");
@@ -82,7 +68,6 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  // let dateElement = document.querySelector("#date");
   let feelsLikeElement = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#curr-weather-icon");
 
@@ -95,7 +80,6 @@ function showTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
-  // dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -104,7 +88,6 @@ function showTemperature(response) {
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
-//--------------------------------------------------------------------------------------------//
 
 // *** spliting the search and the city name so we can have a default city appear on load *** //
 // function searched city will receive a city --> will make an API call --> Display said city's temperature
@@ -124,15 +107,7 @@ function handleSubmit(event) {
   searchCity(cityName);
 }
 
-let newCity = document.querySelector("#search-form");
-newCity.addEventListener("submit", handleSubmit);
-
-// searchedCity is doing the search on load and displaying the weather for NewYork which is the default city //
-
-searchCity("Toronto");
-
-//*****---- Function - Display Current Location ----*****//
-//------------------------------------------------------//
+//*****---- Function - Display Current Location based on geolocation ----*****//
 
 function showPosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -141,41 +116,45 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
   axios.get(url).then(showTemperature);
-  // axios.get(url).then(showCurrentLocation);
 }
 
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+// Golbal Variables //
+
+let existingDate = document.querySelector("#curr-date");
+let currDate = new Date();
+existingDate.innerHTML = dateTime(currDate);
+
+let newCity = document.querySelector("#search-form");
+newCity.addEventListener("submit", handleSubmit);
+
+searchCity("Toronto");
+
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
 
+let celsiusTemperature = null;
+
+let fahrenhiteLink = document.querySelector("#fahrenheit-degree");
+fahrenhiteLink.addEventListener("click", displayFahrenhiteDegree);
+
+let celsiusLink = document.querySelector("#celsius-degree");
+celsiusLink.addEventListener("click", displaycelsiusDegree);
+
 //*****---- Function - Change Background according to hour ----*****//
-//---------------------------------------------------------//
 
-// let day = new Date();
-// let currentTime = day.getHours();
-// let images = document.getElementById("bkgroundimg");
-// function changeBackground() {
-//   if (9 <= currentTime && currentTime < 18) {
-//     images.src = "/images/9am -6pm.jpg";
-//   }
-//   if (18 <= currentTime && currentTime < 21) {
-//     images.src = "/images/6pm -8pm.jpg";
-//   }
-//   if (21 <= currentTime && currentTime < 5) {
-//     images.src = "/images/8pm.jpg";
-//   }
-// }
-// changeBackground();
-
-// function changeBackground() {
-//   let day = new Date();
-//   let currentTime = day.getHours();
-//   let images = document.querySelector("#bkgroundimg");
-//   if (18 <= currentTime && currentTime < 23) {
-//     images.setAttribute("src", `images/5am-9am.jpg`);
-//   }
-// }
-// changeBackground();
+let images = document.querySelector("#bkgroundimg");
+function changeBackground() {
+  if (5 <= currDate && currDate < 9) {
+    images.setAttribute("src", `images/5am - 9am.jpg`);
+  }
+  if (9 <= currDate && currDate < 18) {
+    images.setAttribute("src", `images/9am - 6pm.jpg`);
+  } else {
+    images.setAttribute("src", `images/8pm.jpg`);
+  }
+}
+changeBackground();
