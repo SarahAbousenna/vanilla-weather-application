@@ -40,7 +40,7 @@
             <img
               id="bkgroundimg"
               class="backgroundimg"
-              src="/images/5am -9am.jpg"
+              src="/images/6pm - 8pm.jpg"
               alt="background-img"
             />
           </div>
@@ -82,17 +82,27 @@
           <div class="main">
             <div class="row">
               <div class="col-6 curr-weather">
-                <i class="fa-solid fa-sun fa-spin"></i>
-                <span id="current-weather"></span>
-                <span
-                  ><a href="#" id="celsius-degree" class="celsius">°C</a></span
-                >
-                <span class="dash"> | </span>
-                <span class="fehrenhit">
-                  <a href="#" id="fahrenheit-degree" class="fahrenheit">
-                    °F</a
-                  ></span
-                >
+                <span class="weatherimg"
+                  ><img
+                    src=""
+                    alt="weather-icon"
+                    class="weather-icon"
+                    id="curr-weather-icon"
+                /></span>
+                <span class="current-city-weather">
+                  <span id="current-weather"></span>
+                  <span
+                    ><a href="#" id="celsius-degree" class="celsius"
+                      >°C</a
+                    ></span
+                  >
+                  <span class="dash"> | </span>
+                  <span class="fehrenhit">
+                    <a href="#" id="fahrenheit-degree" class="fahrenheit">
+                      °F</a
+                    ></span
+                  >
+                </span>
               </div>
               <div class="col-6 curr-city">
                 <i class="fa-solid fa-location-dot"></i>
@@ -116,13 +126,11 @@
                   <span id="wind"></span> km/h
                 </div>
               </div>
-              <div class="col-6 date">
-                <div class="col" id="curr-date"></div>
-
+              <div class="col date">
                 <div class="col">
-                  <i class="fa-solid fa-cloud-bolt"></i>
                   <span id="weather-description"></span>
                 </div>
+                <div class="col" id="curr-date"></div>
               </div>
             </div>
           </div>

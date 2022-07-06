@@ -78,6 +78,12 @@ function showTemperature(response) {
     response.data.weather[0].description;
   document.querySelector("#currentcountry").innerHTML =
     response.data.sys.country;
+  let iconElement = document.querySelector("#curr-weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
@@ -147,17 +153,12 @@ button.addEventListener("click", getCurrentPosition);
 // }
 // changeBackground();
 
-// let day = new Date();
-// let currentTime = day.getHours();
-// let images = document.getElementById("bkgroundimg");
 // function changeBackground() {
-//   if (9 <= currentTime && currentTime < 18) {
-//     images = <img src="/images/9am -6pm.jpg"></img>;
-//   }
-//   if (18 <= currentTime && currentTime < 21) {
-//     images = <img src="/images/6pm -8pm.jpg"></img>;
-//   } else {
-//     images = <img src="/images/8pm.jpg"></img>;
+//   let day = new Date();
+//   let currentTime = day.getHours();
+//   let images = document.querySelector("#bkgroundimg");
+//   if (18 <= currentTime && currentTime < 23) {
+//     images.setAttribute("src", `images/5am-9am.jpg`);
 //   }
 // }
 // changeBackground();

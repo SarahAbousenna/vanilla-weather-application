@@ -96,23 +96,44 @@ input:focus {
   left: 30px;
   width: 990px;
   height: 180px;
-  padding: 25px 25px;
+  padding: 10px 20px;
   background-color: rgb(36, 35, 60, 0.4);
+  /* margin-top: 0px; */
+  /* padding: 5px; */
   border-radius: 5px;
   color: white;
 }
 .curr-weather,
 .curr-city {
-  /* padding-top: 10px; */
   font-size: 35px;
+}
+
+.curr-weather {
+  height: 0px;
+  /* padding: 0px; */
+}
+.curr-city {
+  padding-top: 10px;
 }
 
 .conditons,
 .date {
-  padding-left: 25px;
-  padding-top: 10px;
   font-size: 15px;
 }
+.date {
+  padding-top: 15px;
+}
+.conditons {
+  padding-top: 15px;
+  margin-left: 30px;
+}
+.weather-icon {
+  height: 80px;
+}
+.current-city-weather {
+  align-self: baseline;
+}
+
 .weekly-forcast-container {
   position: relative;
   top: -400px;
