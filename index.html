@@ -90,7 +90,7 @@
                     class="weather-icon float-left"
                     id="curr-weather-icon"
                 /></span>
-                <span class="current-city-weather float-left">
+                <span class="current-city-weather">
                   <span id="current-weather"></span>
                   <span
                     ><a href="#" id="celsius-degree" class="celsius active"
@@ -114,10 +114,12 @@
 
               <div class="col-6 conditons">
                 <div class="col">
-                  <i class="fa-solid fa-temperature-half"></i> Feels Like:
-                  <span id="feels-like"> </span>
-                  <span class="celsius-feelslike">°C </span>
-                </div>
+                  <!-- <i class="fa-solid fa-temperature-half"></i> -->
+                  <!-- <span id="feels-like"> </span>
+                  <span class="celsius-feelslike">°C </span> -->
+                  <span class="weather-description" id="weather-description">
+                  </span>
+                </div class= "humid-wind">
                 <div class="col">
                   <i class="fa-solid fa-droplet"></i> <span>Humidity:</span>
                   <span id="humidity"></span>%
@@ -128,9 +130,7 @@
                 </div>
               </div>
               <div class="col date">
-                <div class="col">
-                  <span id="weather-description"></span>
-                </div>
+                <div class="col">Last Updated</div>
                 <div class="col" id="curr-date"></div>
               </div>
             </div>

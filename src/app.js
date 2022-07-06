@@ -1,28 +1,73 @@
+// function formatDate(timeStamp) {
+//   // calc the time and return the actual date
+
+//   let date = new Date(timeStamp);
+//   let hours = date.getHours();
+//   if (hours < 10) {
+//     hours = `0${hours}`;
+//   }
+//   let minutes = date.getMinutes();
+//   if (minutes < 10) {
+//     minutes = `0${minutes}`;
+//   }
+
+//   let days = [
+//     "Sunday",
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//   ];
+
+//   let day = days[date.getDay()];
+
+//   let months = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "Spetember",
+//     "October",
+//     "November",
+//     "December",
+//   ];
+
+//   let month = months[date.getMonth()];
+
+//   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
+// }
+
+// function formatDay(timestamp) {
+//   let date = new Date(timestamp * 1000);
+//   let day = date.getDay();
+//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+//   return days[day];
+// }
+
 //*****---- Function - Display Current Date and Time ----*****//
 
 function dateTime(currDate) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let months = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
-    "June",
-    "July",
-    "August",
-    "Spetember",
-    "October",
-    "November",
-    "December",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
   let date = currDate.getDate();
@@ -68,7 +113,8 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let feelsLikeElement = document.querySelector("#feels-like");
+  // let feelsLikeElement = document.querySelector("#feels-like");
+  // let dateElement = document.querySelector("#curr-date");
   let iconElement = document.querySelector("#curr-weather-icon");
 
   celsiusTemperature = response.data.main.temp;
@@ -79,7 +125,9 @@ function showTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  // feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  // dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

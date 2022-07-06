@@ -32,14 +32,14 @@ body {
 
 .logo {
   position: absolute;
-  top: 45px;
+  top: 40px;
   left: 40px;
   width: 400px;
 }
 
 .search-container {
   position: relative;
-  top: -445px;
+  top: -450px;
   left: 30px;
 }
 
@@ -92,7 +92,7 @@ input:focus {
 
 .main {
   position: relative;
-  top: -420px;
+  top: -435px;
   left: 30px;
   width: 990px;
   height: 180px;
@@ -108,22 +108,18 @@ input:focus {
 
 .curr-weather {
   height: 0px;
-  /* padding: 0px; */
 }
 .curr-city {
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
-.conditons,
 .date {
   font-size: 15px;
-}
-.date {
   padding-top: 14px;
 }
 .conditons {
   margin-left: 30px;
-  margin-top: 6px;
+  font-size: 15px;
 }
 .weather-icon {
   height: 80px;
@@ -134,9 +130,15 @@ input:focus {
   float: left;
 }
 
+.weather-description {
+  text-transform: capitalize;
+  font-size: 22px;
+  line-height: 30px;
+}
+
 .weekly-forcast-container {
   position: relative;
-  top: -400px;
+  top: -420px;
   left: 30px;
   width: 990px;
   height: 140px;
@@ -187,8 +189,4 @@ input:focus {
 .dash {
   text-decoration: none;
   color: rgb(189, 189, 189);
-}
-
-#weather-description {
-  text-transform: capitalize;
 }
