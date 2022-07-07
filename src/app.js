@@ -104,6 +104,64 @@ function displaycelsiusDegree(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
+
+function formateDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  return days[day];
+}
+
+//****---- Function - Display weekly forcast ----****//
+
+function displayWeeklyForcast(response) {
+  let forecast = response.data.daily;
+  let forcastElement = document.querySelector("#weekly-forcast");
+  let forcastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forcastDay, index) {
+    if (index < 6) {
+      forcastHTML =
+        forcastHTML +
+        `
+              <div class="col">
+                <div class="weekly-forecast-date">${formateDay(
+                  forcastDay.dt
+                )}</div>
+                <img
+                  src="http://openweathermap.org/img/wn/${
+                    forcastDay.weather[0].icon
+                  }@2x.png"
+                  alt=""
+                  class="weekly-forcast-icon"
+                />
+                <div class="weekly-forecast-temperatures">
+                  <span class="weekly-forecast-temperature-max"> ${Math.round(
+                    forcastDay.temp.max
+                  )}° </span>
+                  <span class="weekly-forecast-temperature-min"> ${Math.round(
+                    forcastDay.temp.min
+                  )}° </span>
+                  <span class="weekly-forecast-degree">C° </span>
+                </div>   
+              </div>
+            `;
+    }
+  });
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
+}
+
+//****---- Function that gets the Lat and Long ----*****//
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeeklyForcast);
+}
+
 //*****---- Function - Display Current City Temprature + Weather Details ----*****//
 
 function showTemperature(response) {
@@ -133,6 +191,10 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  //after we get the response from the above API we call it to get the Lat Long
+
+  getForecast(response.data.coord);
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
@@ -147,7 +209,7 @@ function searchCity(cityName) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-//function handleSubmit whenever the search form is submitted it will fetch the city input value and search for it
+//*****---- Function - handleSubmit whenever the search form is submitted it will fetch the city input value and search for it
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -170,29 +232,7 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-// Golbal Variables //
-
-let existingDate = document.querySelector("#curr-date");
-let currDate = new Date();
-existingDate.innerHTML = dateTime(currDate);
-
-let newCity = document.querySelector("#search-form");
-newCity.addEventListener("submit", handleSubmit);
-
-searchCity("Toronto");
-
-let button = document.querySelector("#current-location");
-button.addEventListener("click", getCurrentPosition);
-
-let celsiusTemperature = null;
-
-let fahrenhiteLink = document.querySelector("#fahrenheit-degree");
-fahrenhiteLink.addEventListener("click", displayFahrenhiteDegree);
-
-let celsiusLink = document.querySelector("#celsius-degree");
-celsiusLink.addEventListener("click", displaycelsiusDegree);
-
-//*****---- Function - Change Background according to hour ----*****//
+//*****---- Function - Change Background according to hour of the day ----*****//
 
 function changeBackground() {
   let day = new Date();
@@ -209,4 +249,28 @@ function changeBackground() {
     images.setAttribute("src", `images/night.jpg`);
   }
 }
+
+// Golbal Variables //
+
+let existingDate = document.querySelector("#curr-date");
+let currDate = new Date();
+existingDate.innerHTML = dateTime(currDate);
+
+let newCity = document.querySelector("#search-form");
+newCity.addEventListener("submit", handleSubmit);
+
+let button = document.querySelector("#current-location");
+button.addEventListener("click", getCurrentPosition);
+
+let celsiusTemperature = null;
+
+let fahrenhiteLink = document.querySelector("#fahrenheit-degree");
+fahrenhiteLink.addEventListener("click", displayFahrenhiteDegree);
+
+let celsiusLink = document.querySelector("#celsius-degree");
+celsiusLink.addEventListener("click", displaycelsiusDegree);
+
+// Function Calling //
+
 changeBackground();
+searchCity("Toronto");
