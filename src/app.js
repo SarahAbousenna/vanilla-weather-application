@@ -121,7 +121,7 @@ function displayWeeklyForcast(response) {
   let forcastHTML = `<div class="row">`;
 
   forecast.forEach(function (forcastDay, index) {
-    if (index < 6) {
+    if (index > 0 && index < 7) {
       forcastHTML =
         forcastHTML +
         `
@@ -192,7 +192,7 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  //after we get the response from the above API we call it to get the Lat Long
+  //After we get the response from the above API we call getForcast function to get the Lat Long
 
   getForecast(response.data.coord);
 }
