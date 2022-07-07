@@ -3,7 +3,6 @@
 }
 body {
   font-family: "Anek Malayalam", sans-serif;
-  /* font-family: "Roboto Mono", monospace; */
   background-color: rgb(251, 232, 223, 0.3);
 }
 
@@ -55,7 +54,6 @@ body {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  /* background-color: rgba(255, 255, 255, 0.4); */
   background-color: rgba(116, 116, 128, 0.4);
   color: white;
   font-size: 20px;
@@ -66,7 +64,6 @@ body {
   padding: 12px;
   border: none;
   border-radius: 5px;
-  /* background-color: rgb(36, 35, 60, 0.7); */
   background-color: rgb(36, 35, 60, 0.5);
   color: white;
   font-size: 20px;
@@ -75,7 +72,6 @@ body {
 textarea:focus,
 input:focus {
   outline: none;
-  /* background-color: rgb(36, 35, 60, 0.4); */
 }
 
 ::placeholder {
@@ -196,8 +192,3 @@ input:focus {
   color: rgb(54, 54, 82);
   cursor: pointer;
 }
-
-/* .celsius-feelslike {
-  color: white;
-  text-decoration: none;
-} */

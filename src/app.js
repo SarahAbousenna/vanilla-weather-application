@@ -1,56 +1,3 @@
-// function formatDate(timeStamp) {
-//   // calc the time and return the actual date
-
-//   let date = new Date(timeStamp);
-//   let hours = date.getHours();
-//   if (hours < 10) {
-//     hours = `0${hours}`;
-//   }
-//   let minutes = date.getMinutes();
-//   if (minutes < 10) {
-//     minutes = `0${minutes}`;
-//   }
-
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
-
-//   let day = days[date.getDay()];
-
-//   let months = [
-//     "January",
-//     "February",
-//     "March",
-//     "April",
-//     "May",
-//     "June",
-//     "July",
-//     "August",
-//     "Spetember",
-//     "October",
-//     "November",
-//     "December",
-//   ];
-
-//   let month = months[date.getMonth()];
-
-//   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
-// }
-
-// function formatDay(timestamp) {
-//   let date = new Date(timestamp * 1000);
-//   let day = date.getDay();
-//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-//   return days[day];
-// }
-
 //*****---- Function - Display Current Date and Time ----*****//
 
 function dateTime(currDate) {
@@ -81,6 +28,15 @@ function dateTime(currDate) {
   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
 }
 
+//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
+
+function formateDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  return days[day];
+}
+
 //*****---- Function - Convert Celsius to Fahrenheite ----*****//
 
 function displayFahrenhiteDegree(event) {
@@ -102,15 +58,6 @@ function displaycelsiusDegree(event) {
   fahrenhiteLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-weather");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
-
-function formateDay(timeStamp) {
-  let date = new Date(timeStamp * 1000);
-  let day = date.getDay();
-  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  return days[day];
 }
 
 //****---- Function - Display weekly forcast ----****//
@@ -143,7 +90,7 @@ function displayWeeklyForcast(response) {
                   <span class="weekly-forecast-temperature-min"> ${Math.round(
                     forcastDay.temp.min
                   )}° </span>
-                  <span class="weekly-forecast-degree">C° </span>
+                 <span class="weekly-forecast-degree">C° </span>
                 </div>   
               </div>
             `;
@@ -156,9 +103,9 @@ function displayWeeklyForcast(response) {
 //****---- Function that gets the Lat and Long ----*****//
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeeklyForcast);
 }
 
@@ -171,8 +118,6 @@ function showTemperature(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  // let feelsLikeElement = document.querySelector("#feels-like");
-  // let dateElement = document.querySelector("#curr-date");
   let iconElement = document.querySelector("#curr-weather-icon");
 
   celsiusTemperature = response.data.main.temp;
@@ -183,8 +128,6 @@ function showTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  // feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
-  // dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   iconElement.setAttribute(
     "src",
@@ -192,15 +135,11 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  //After we get the response from the above API we call getForcast function to get the Lat Long
-
   getForecast(response.data.coord);
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
-
-// *** spliting the search and the city name so we can have a default city appear on load *** //
-// function searched city will receive a city --> will make an API call --> Display said city's temperature
+// this function will receive a city --> will make an API call --> Display said city's temperature
 
 function searchCity(cityName) {
   let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
