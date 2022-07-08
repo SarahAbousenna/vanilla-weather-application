@@ -190,6 +190,7 @@ input:focus {
   font-family: "Roboto Mono", monospace;
   display: block;
   margin: 0 auto;
+  padding: 10px;
 }
 
 .github-link,
@@ -210,4 +211,12 @@ input:focus {
   background: -webkit-linear-gradient(rgb(192, 55, 55), rgb(244, 122, 122));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.alert-more-info {
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  width: 1065px;
+  margin: 0 auto;
 }

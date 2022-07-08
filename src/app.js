@@ -1,4 +1,4 @@
-//*****---- Function - Display Current Date and Time ----*****//
+//*****---- ⚠️ FUNCTION: Display Current Date and Time ----*****//
 
 function dateTime(currDate) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -28,7 +28,7 @@ function dateTime(currDate) {
   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
 }
 
-//*****---- Function - Convert Celsius to Fahrenheite ----*****//
+//*****---- ⚠️ FUNCTION: Convert Celsius to Fahrenheite ----*****//
 
 // function displayFahrenhiteDegree(event) {
 //   event.preventDefault();
@@ -51,7 +51,7 @@ function dateTime(currDate) {
 //   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 // }
 
-//****---- Function - Display weekly forcast ----****//
+//****---- ⚠️ FUNCTION: Display weekly forcast >>>>>>>>
 
 function displayWeeklyForcast(response) {
   let forecast = response.data.daily;
@@ -89,7 +89,7 @@ function displayWeeklyForcast(response) {
   forcastElement.innerHTML = forcastHTML;
 }
 
-//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
+// ➡️ Changes the date (day) format of the API to an actual day of the week for weekly forcast function
 
 function formateDay(timeStamp) {
   let date = new Date(timeStamp * 1000);
@@ -98,7 +98,7 @@ function formateDay(timeStamp) {
   return days[day];
 }
 
-//****---- Function that gets the Lat and Long ----*****//
+// ➡️ Gets the Lat and Lon for weekly forcast function ----*****//
 
 function getForecast(coordinates) {
   let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
@@ -107,7 +107,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayWeeklyForcast);
 }
 
-//***** Weather Warning alert *******//
+//***** ⚠️ FUNCTION: Weather Warning alert *******//
 
 function showAlerts(response) {
   if (response.data.alerts && response.data.alerts.length > 0) {
@@ -125,7 +125,24 @@ function alertsCoords(coordinates) {
   axios.get(apiUrl).then(showAlerts);
 }
 
-//*****---- Function - Display Current City Temprature + Weather Details ----*****//
+//***** ⚠️ FUNCTION: MORE INFO about Weather Warning alert *******//
+
+function moreInfoCoords(coordinates) {
+  let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(moreInfo);
+}
+
+function moreInfo(response) {
+  if (response.data.alerts && response.data.alerts.length > 0) {
+    let alertInfo = document.querySelector("#moreinfo");
+    alertInfo.style.backgroundColor = "rgb(152, 31, 20, 0.4)";
+    alertInfo.innerHTML = response.data.alerts[0].description;
+  }
+}
+
+//*****---- ⚠️ FUNCTION: Display Current City Temprature + Weather Details ----*****//
 
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#current-weather");
@@ -153,10 +170,10 @@ function showTemperature(response) {
 
   getForecast(response.data.coord);
   alertsCoords(response.data.coord);
+  moreInfoCoords(response.data.coord);
 }
 
-//*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
-// this function will receive a city --> will make an API call --> Display said city's temperature
+// ➡️ Receive a city --> will make an API call --> Display said city's temperature
 
 function searchCity(cityName) {
   let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
@@ -165,7 +182,7 @@ function searchCity(cityName) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-//*****---- Function - handleSubmit whenever the search form is submitted it will fetch the city input value and search for it
+// ➡️  Whenever the search form is submitted it will fetch the city input value and search for it
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -173,7 +190,7 @@ function handleSubmit(event) {
   searchCity(cityName);
 }
 
-//*****---- Function - Display Current Location based on geolocation ----*****//
+//***** ⚠️ FUNCTION: Display Current Location based on geolocation ----*****//
 
 function showPosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -188,7 +205,7 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-//*****---- Function - Change Background according to hour of the day ----*****//
+//***** ⚠️ FUNCTION: Change Background according to hour of the day ----*****//
 
 function changeBackground() {
   let day = new Date();
@@ -205,7 +222,7 @@ function changeBackground() {
   }
 }
 
-// Golbal Variables //
+// 🌎 GLOBAL VARIABLES 🌎 //
 
 let existingDate = document.querySelector("#curr-date");
 let currDate = new Date();
@@ -225,7 +242,7 @@ button.addEventListener("click", getCurrentPosition);
 // let celsiusLink = document.querySelector("#celsius-degree");
 // celsiusLink.addEventListener("click", displaycelsiusDegree);
 
-// Function Calling //
+// ☎️ FUNCTION CALLING ☎️ //
 
 changeBackground();
 searchCity("Toronto");
