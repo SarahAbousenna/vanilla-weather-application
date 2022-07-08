@@ -198,12 +198,11 @@ input:focus {
   cursor: pointer;
 }
 
-/* .alert {
+.alert {
   color: white;
-  background-color: rgba(144, 44, 44, 0.721);
+
   font-size: 20px;
   text-align: center;
-  position: relative;
-  top: -410px;
   padding: 0px;
-} */
+  margin: 10px;
+}
