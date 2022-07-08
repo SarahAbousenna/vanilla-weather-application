@@ -107,6 +107,21 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayWeeklyForcast);
 }
 
+//***** Weather Warning alert *******//
+
+// function showAlerts(response) {
+//   let alertsElement = document.querySelector("#alerts");
+//   alertsHTML = `<div class="alert"> ${response.data.alerts[0].event} </div>`;
+//   alertsElement.innerHTML = alertsHTML;
+// }
+
+// function alertsCoords(coordinates) {
+//   let apiKey = "aae8baa2317f56f58a77ca41fca89dc2";
+//   let units = "metric";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+//   axios.get(apiUrl).then(showAlerts);
+// }
+
 //*****---- Function - Display Current City Temprature + Weather Details ----*****//
 
 function showTemperature(response) {
@@ -134,6 +149,7 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
+  // alertsCoords(response.data.coord);
 }
 
 //*****---- Function - Display Searched City Name ---> Show Searched City Temperature ----*****//
@@ -175,7 +191,6 @@ function changeBackground() {
   let day = new Date();
   let currentTime = day.getHours();
   let images = document.querySelector("#bkgroundimg");
-  console.log(currentTime);
   if (currentTime >= 5 && currentTime < 9) {
     images.setAttribute("src", `images/dawn.jpg`);
   } else if (currentTime >= 9 && currentTime < 18) {
