@@ -77,9 +77,7 @@ function displayWeeklyForcast(response) {
                   forcastDay.dt
                 )}</div>
                 <img
-                  src="http://openweathermap.org/img/wn/${
-                    forcastDay.weather[0].icon
-                  }@2x.png"
+                  src="./images/iconsWeather/${forcastDay.weather[0].icon}.svg"
                   alt=""
                   class="weekly-forcast-icon"
                 />
@@ -131,7 +129,7 @@ function showTemperature(response) {
 
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `./images/iconsWeather/${response.data.weather[0].icon}.svg`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 

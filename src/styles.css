@@ -134,7 +134,7 @@ input:focus {
   font-size: 15px;
 }
 .weather-icon {
-  height: 80px;
+  height: 85px;
   float: left;
 }
 .current-city-weather {
@@ -144,7 +144,7 @@ input:focus {
 
 .weather-description {
   text-transform: capitalize;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 30px;
 }
 
@@ -163,7 +163,9 @@ input:focus {
 }
 
 .weekly-forcast-icon {
-  height: 60px;
+  position: relative;
+  top: -10px;
+  height: 70px;
 }
 
 .weekly-forecast-date {
@@ -178,6 +180,8 @@ input:focus {
 
 .weekly-forecast-temperatures {
   font-size: 15px;
+  position: relative;
+  top: -10px;
 }
 
 .developer {
