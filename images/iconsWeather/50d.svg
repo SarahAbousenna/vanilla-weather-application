@@ -1,66 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- (c) ammap.com | SVG weather icons -->
-<svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="64"
-    height="64"
-    viewbox="0 0 64 64">
-    <defs>
-        <filter id="blur" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-            <feOffset dx="0" dy="4" result="offsetblur"/>
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.05"/>
-            </feComponentTransfer>
-            <feMerge> 
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/> 
-            </feMerge>
-        </filter>
-        <style type="text/css"><![CDATA[
-/*
-** RAIN
-*/
-@keyframes am-weather-rain {
-  0% {
-    stroke-dashoffset: 0;
-  }
-
-  100% {
-    stroke-dashoffset: -100;
-  }
-}
-
-.am-weather-rain-1 {
-  -webkit-animation-name: am-weather-rain;
-     -moz-animation-name: am-weather-rain;
-      -ms-animation-name: am-weather-rain;
-          animation-name: am-weather-rain;
-  -webkit-animation-duration: 8s;
-     -moz-animation-duration: 8s;
-      -ms-animation-duration: 8s;
-          animation-duration: 8s;
-  -webkit-animation-timing-function: linear;
-     -moz-animation-timing-function: linear;
-      -ms-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-     -moz-animation-iteration-count: infinite;
-      -ms-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-}
-        ]]></style>
-    </defs>
-    <g filter="url(#blur)" id="rainy-4">
-        <g transform="translate(20,10)">
-            <g>
-                <path d="M47.7,35.4c0-4.6-3.7-8.2-8.2-8.2c-1,0-1.9,0.2-2.8,0.5c-0.3-3.4-3.1-6.2-6.6-6.2c-3.7,0-6.7,3-6.7,6.7c0,0.8,0.2,1.6,0.4,2.3    c-0.3-0.1-0.7-0.1-1-0.1c-3.7,0-6.7,3-6.7,6.7c0,3.6,2.9,6.6,6.5,6.7l17.2,0C44.2,43.3,47.7,39.8,47.7,35.4z" fill="white" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)"/>
-            </g>
-        </g>
-        <g transform="translate(37,45), rotate(10)">
-            <line class="am-weather-rain-1" fill="none" stroke="white" stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(-6,1)" x1="0" x2="0" y1="0" y2="8" />
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+	<defs>
+		<linearGradient id="a" x1="16.5" y1="19.67" x2="21.5" y2="28.33" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fbbf24"/>
+			<stop offset="0.45" stop-color="#fbbf24"/>
+			<stop offset="1" stop-color="#f59e0b"/>
+		</linearGradient>
+		<linearGradient id="b" x1="22.56" y1="21.96" x2="39.2" y2="50.8" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f3f7fe"/>
+			<stop offset="0.45" stop-color="#f3f7fe"/>
+			<stop offset="1" stop-color="#deeafb"/>
+		</linearGradient>
+		<linearGradient id="c" x1="27.5" y1="50.21" x2="36.5" y2="65.79" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#d4d7dd"/>
+			<stop offset="0.45" stop-color="#d4d7dd"/>
+			<stop offset="1" stop-color="#bec1c6"/>
+		</linearGradient>
+		<linearGradient id="d" y1="44.21" y2="59.79" xlink:href="#c"/>
+	</defs>
+	<circle cx="19" cy="24" r="5" stroke="#f8af18" stroke-miterlimit="10" stroke-width="0.5" fill="url(#a)"/>
+	<path d="M19,15.67V12.5m0,23V32.33m5.89-14.22,2.24-2.24M10.87,32.13l2.24-2.24m0-11.78-2.24-2.24M27.13,32.13l-2.24-2.24M7.5,24h3.17M30.5,24H27.33" fill="none" stroke="#fbbf24" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2">
+		<animateTransform attributeName="transform" type="rotate" values="0 19 24; 360 19 24" dur="45s" repeatCount="indefinite"/>
+	</path>
+	<path d="M46.5,31.5l-.32,0a10.49,10.49,0,0,0-19.11-8,7,7,0,0,0-10.57,6,7.21,7.21,0,0,0,.1,1.14A7.5,7.5,0,0,0,18,45.5a4.19,4.19,0,0,0,.5,0v0h28a7,7,0,0,0,0-14Z" stroke="#e6effc" stroke-miterlimit="10" stroke-width="0.5" fill="url(#b)"/>
+	<line x1="17" y1="58" x2="47" y2="58" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3" stroke="url(#c)">
+		<animateTransform attributeName="transform" type="translate" values="-4 0; 4 0; -4 0" dur="5s" begin="0s" repeatCount="indefinite"/>
+	</line>
+	<line x1="17" y1="52" x2="47" y2="52" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3" stroke="url(#d)">
+		<animateTransform attributeName="transform" type="translate" values="-4 0; 4 0; -4 0" dur="5s" begin="-4s" repeatCount="indefinite"/>
+	</line>
 </svg>

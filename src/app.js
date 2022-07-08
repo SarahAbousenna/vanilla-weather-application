@@ -28,15 +28,6 @@ function dateTime(currDate) {
   return `<i class="fa-solid fa-calendar-days"></i>  ${day}, ${month} ${date}  <i class="fas fa-clock"></i> ${hours}:${minutes}`;
 }
 
-//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
-
-function formateDay(timeStamp) {
-  let date = new Date(timeStamp * 1000);
-  let day = date.getDay();
-  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  return days[day];
-}
-
 //*****---- Function - Convert Celsius to Fahrenheite ----*****//
 
 // function displayFahrenhiteDegree(event) {
@@ -98,6 +89,15 @@ function displayWeeklyForcast(response) {
   forcastElement.innerHTML = forcastHTML;
 }
 
+//****---- Function - Changes the date (day) format of the API to an Actual day of the week  ----***//
+
+function formateDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  return days[day];
+}
+
 //****---- Function that gets the Lat and Long ----*****//
 
 function getForecast(coordinates) {
@@ -113,7 +113,7 @@ function showAlerts(response) {
   if (response.data.alerts && response.data.alerts.length > 0) {
     let alertsElement = document.querySelector("#alerts");
     alertsElement.style.backgroundColor = "#981f15";
-    alertsHTML = `<div class="alert">  ${response.data.alerts[0].event} </div>`;
+    alertsHTML = `<div class="alert"> ⚠️ ALERT! ${response.data.alerts[0].event} </div>`;
     alertsElement.innerHTML = alertsHTML;
   }
 }

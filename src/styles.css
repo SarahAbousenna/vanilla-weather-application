@@ -82,8 +82,8 @@ input:focus {
   background-color: transparent;
   border: none;
   position: relative;
-  left: 705px;
-  top: -56px;
+  left: 696px;
+  top: -57px;
 }
 
 .search-icon-img {
@@ -134,7 +134,7 @@ input:focus {
   font-size: 15px;
 }
 .weather-icon {
-  height: 85px;
+  height: 75px;
   float: left;
 }
 .current-city-weather {
@@ -164,7 +164,7 @@ input:focus {
 
 .weekly-forcast-icon {
   position: relative;
-  top: -10px;
+  top: -5px;
   height: 70px;
 }
 
@@ -200,9 +200,14 @@ input:focus {
 
 .alert {
   color: white;
-
   font-size: 20px;
   text-align: center;
   padding: 0px;
   margin: 10px;
+}
+
+.location-pin {
+  background: -webkit-linear-gradient(rgb(192, 55, 55), rgb(244, 122, 122));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
