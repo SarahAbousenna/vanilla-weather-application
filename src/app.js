@@ -113,7 +113,7 @@ function showAlerts(response) {
   let alertsElement = document.querySelector("#alerts");
   if (response.data.alerts && response.data.alerts.length > 0) {
     alertsElement.style.backgroundColor = "#981f15";
-    alertsHTML = `<div class="alert"> ⚠️ ALERT! ${response.data.alerts[0].event} </div>`;
+    alertsHTML = `<div class="alert"> ⚠️ WEATHER ALERT: ${response.data.alerts[0].event} </div>`;
     alertsElement.innerHTML = alertsHTML;
   } else {
     alertsElement.innerHTML = "";
