@@ -218,5 +218,6 @@ input:focus {
   border-radius: 5px;
   color: white;
   width: 1065px;
+  padding: 5px;
   margin: 0 auto;
 }

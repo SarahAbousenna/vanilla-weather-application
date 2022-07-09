@@ -110,11 +110,14 @@ function getForecast(coordinates) {
 //***** ⚠️ FUNCTION: Weather Warning alert *******//
 
 function showAlerts(response) {
+  let alertsElement = document.querySelector("#alerts");
   if (response.data.alerts && response.data.alerts.length > 0) {
-    let alertsElement = document.querySelector("#alerts");
     alertsElement.style.backgroundColor = "#981f15";
     alertsHTML = `<div class="alert"> ⚠️ ALERT! ${response.data.alerts[0].event} </div>`;
     alertsElement.innerHTML = alertsHTML;
+  } else {
+    alertsElement.innerHTML = "";
+    alertsElement.style.backgroundColor = "#fdf8f4";
   }
 }
 
@@ -135,10 +138,13 @@ function moreInfoCoords(coordinates) {
 }
 
 function moreInfo(response) {
+  let alertInfo = document.querySelector("#moreinfo");
   if (response.data.alerts && response.data.alerts.length > 0) {
-    let alertInfo = document.querySelector("#moreinfo");
     alertInfo.style.backgroundColor = "rgb(152, 31, 20, 0.4)";
     alertInfo.innerHTML = response.data.alerts[0].description;
+  } else {
+    alertInfo.innerHTML = "";
+    alertInfo.style.backgroundColor = "#fdf8f4";
   }
 }
 
